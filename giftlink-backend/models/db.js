@@ -19,7 +19,8 @@ async function connectToDatabase() {
 
     // Task 1: Connect to MongoDB
     await client.connect();
-    // mongoose.connect(url,{'dbName':'SocialDB'});
+    // check giftdb or giftsdb
+    // mongoose.connect(url,{'dbName':'giftsdb'});
 
     // Task 2: Connect to database giftDB and store in variable dbInstance
     dbInstance = client.db(dbName);
