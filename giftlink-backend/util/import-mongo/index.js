@@ -17,7 +17,7 @@ async function loadData() {
 
     try {
         // Connect to the MongoDB client
-        await client.connect();
+        await client.connect()
         console.log("Connected successfully to server");
 
         // database will be created if it does not exist
@@ -33,7 +33,7 @@ async function loadData() {
             const insertResult = await collection.insertMany(data);
             console.log('Inserted documents:', insertResult.insertedCount);
         } else {
-            console.log("Gifts already exists in DB")
+            console.log("Gifts already exists in DB");
         }
     } catch (err) {
         console.error(err);
