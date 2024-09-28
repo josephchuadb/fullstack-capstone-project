@@ -13,10 +13,13 @@ async function connectToDatabase() {
         return dbInstance;
     };
 
-    const client = new MongoClient(url);      
+    // const client = new MongoClient(url);
+    const testURL = 'mongodb://mongodb:27017';
+    const client = new MongoClient(testURL);
 
     // Task 1: Connect to MongoDB
     await client.connect();
+    // mongoose.connect(url,{'dbName':'SocialDB'});
 
     // Task 2: Connect to database giftDB and store in variable dbInstance
     dbInstance = client.db(dbName);
