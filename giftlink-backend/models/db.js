@@ -13,14 +13,11 @@ async function connectToDatabase() {
         return dbInstance;
     };
 
-    // const client = new MongoClient(url);
-    const testURL = 'mongodb://mongodb:27017';
-    const client = new MongoClient(testURL);
+    const client = new MongoClient(url);
 
     // Task 1: Connect to MongoDB
     await client.connect();
-    // check giftdb or giftsdb
-    // mongoose.connect(url,{'dbName':'giftsdb'});
+    // mongoose.connect(url,{'dbName':'giftdb'});
 
     // Task 2: Connect to database giftDB and store in variable dbInstance
     dbInstance = client.db(dbName);
