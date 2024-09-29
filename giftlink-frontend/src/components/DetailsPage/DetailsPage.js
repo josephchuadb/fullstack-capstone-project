@@ -13,15 +13,15 @@ function DetailsPage() {
 	useEffect(() => {
         const authenticationToken = sessionStorage.getItem('auth-token');
         if (!authenticationToken) {
-			// Task 1: Check for authentication and redirect
+            // Task 1: Check for authentication and redirect
             navigate('/app/login');
         }
-
         // get the gift to be rendered on the details page
         const fetchGift = async () => {
             try {
-				// Task 2: Fetch gift details
-                const response = await fetch(`${urlConfig.backendUrl}/api/gifts/${productId}`);
+                // Task 2: Fetch gift details
+                const url = `${urlConfig.backendUrl}/api/gifts/${productId}`;
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -33,13 +33,10 @@ function DetailsPage() {
                 setLoading(false);
             }
         };
-
         fetchGift();
-
-		// Task 3: Scroll to top on component mount
-		window.scrollTo(0, 0);
-    }, [productId])
-    // navigate
+        // Task 3: Scroll to top on component mount
+        window.scrollTo(0, 0);
+    }, [productId, navigate]);
 
     const handleBackClick = () => {
 		// Task 4: Handle back click
